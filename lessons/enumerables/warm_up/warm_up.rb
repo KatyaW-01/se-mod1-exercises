@@ -53,7 +53,7 @@ def first_num_thats_square_is_above_100(nums)
     nums.each do |num|
         num = num * num 
         if num > 100
-            puts num 
+            return num 
         end
 
     end
@@ -63,3 +63,7 @@ end
 p first_num_thats_square_is_above_100(nums)
 
 # should return the integer 11
+
+numbers = [1,2,3,4]
+squared_numbers = numbers.map{|num| num ** 2}
+puts squared_numbers
