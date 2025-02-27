@@ -19,7 +19,7 @@ Use TDD to create a `Boat` and a `Renter` class that respond to the following in
 pry(main)> require './lib/boat'
 # => true
 
-pry(main)> require './lib/renter'
+pry(main)> require './lib/boat'
 # => true
 
 pry(main)> kayak = Boat.new(:kayak, 20)    
