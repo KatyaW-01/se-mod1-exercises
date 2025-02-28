@@ -29,5 +29,10 @@ class Dock
     
         
     end
+
+    def return(boat)
+        @rental_log.delete(boat)
+
+    end
  
 end
