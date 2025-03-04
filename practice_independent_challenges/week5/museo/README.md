@@ -26,7 +26,7 @@ For `age_at_death`, assume an artist was born and died on the same day.
 ```ruby
 pry(main)> require './lib/photograph'
 #=> true
-
+ 
 pry(main)> require './lib/artist'
 #=> true
 

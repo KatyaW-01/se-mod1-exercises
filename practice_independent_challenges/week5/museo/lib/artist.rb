@@ -1,0 +1,1 @@
+#artists = CSV.read('./data/artists.csv', headers: true, header_converters: :symbol)
