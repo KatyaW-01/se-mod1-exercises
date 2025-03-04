@@ -1,10 +1,12 @@
 
 class Photograph
-    attr_reader :attributes
+    attr_reader :id, :name, :artist_id, :year
     def initialize(attributes)
-        attributes = CSV.read('./data/photograph.csv', headers: true, header_converters: :symbol)
+        @id = attributes[:id]
+        @name = attributes[:name]
+        @artist_id = attributes[:artist_id]
+        @year = attributes[:year]
+  
     end
 end
 
-#@attributes = CSV.read('./data/photograph.csv', headers: true, header_converters: :symbol)
-        #@id = attributes[:id]
