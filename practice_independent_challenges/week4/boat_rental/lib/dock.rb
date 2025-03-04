@@ -14,7 +14,6 @@ class Dock
     def charge(boat)
         result = {}
         result[:card_number] = @rental_log[boat].credit_card_number
-        #binding.pry
         
 
         if boat.hours_rented > @max_rental_time
@@ -32,7 +31,14 @@ class Dock
 
     def return(boat)
         @rental_log.delete(boat)
-
     end
+
+    def log_hour
+        @rental_log.each_key do |boat|
+            boat.add_hours
+        end
+    end
+
+    
  
 end

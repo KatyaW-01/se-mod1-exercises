@@ -5,7 +5,7 @@ class Boat
         @price_per_hour = price_per_hour
         @hours_rented = 0
     end
-    
+
     def add_hours
         @hours_rented += 1
     end

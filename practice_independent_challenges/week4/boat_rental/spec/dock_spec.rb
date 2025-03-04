@@ -112,6 +112,51 @@ RSpec.describe Dock do
 
             expect(@dock.rental_log).to eq(kayak_2 => patrick)
         end
+        it 'can add an hour' do
+            kayak_1 = Boat.new(:kayak, 20)
+            kayak_2 = Boat.new(:kayak, 20)  
+            sup_1 = Boat.new(:standup_paddle_board, 15)
+
+            patrick = Renter.new("Patrick Star", "4242424242424242") 
+            eugene = Renter.new("Eugene Crabs", "1313131313131313")    
+
+            @dock.rent(kayak_1, patrick)  
+            
+
+            expect(kayak_1.hours_rented).to eq(0)
+            kayak_1.add_hours
+            expect(kayak_1.hours_rented).to eq(1)
+            kayak_1.add_hours
+            expect(kayak_1.hours_rented).to eq(2)
+
+            @dock.rent(kayak_2, patrick)
+
+            expect(kayak_2.hours_rented).to eq(0)
+            kayak_2.add_hours
+            expect(kayak_2.hours_rented).to eq(1)
+            kayak_2.add_hours
+            expect(kayak_2.hours_rented).to eq(2)
+            kayak_2.add_hours
+            expect(kayak_2.hours_rented).to eq(3)
+            kayak_2.add_hours
+            expect(kayak_2.hours_rented).to eq(4)
+
+
+            @dock.rent(sup_1, eugene) 
+
+            expect(sup_1.hours_rented).to eq(0)
+            sup_1.add_hours
+            expect(sup_1.hours_rented).to eq(1)
+
+            expect(@dock.rental_log).to eq({kayak_1 => patrick, kayak_2 => patrick, sup_1 => eugene})
+
+            @dock.log_hour
+
+            expect(kayak_1.hours_rented).to eq(3)
+            expect(kayak_2.hours_rented).to eq(5)
+            expect(sup_1.hours_rented).to eq(2)
+
+        end
     end
 
 end
