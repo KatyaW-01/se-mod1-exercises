@@ -18,4 +18,29 @@ class Curator
             artist.id == id
         end
     end
+
+    def artist_and_photograph_list
+        result = {}
+        @artists.each do |artist|
+            result[artist] = []
+            @photographs.map do |photograph|
+                if artist.id == photograph.id
+                    result[artist] << photograph
+                end
+            end
+            
+        end
+        result
+    end
+
+    def multiple_photos
+        list = artist_and_photograph_list
+        result = []
+        list.map do |artist,photo|
+            if photo.length > 1 
+                result << artist
+            end
+        end
+        result
+    end
 end
