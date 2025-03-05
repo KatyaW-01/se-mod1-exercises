@@ -5,11 +5,11 @@ require './lib/artist'
 
 
 photographs_path = './data/photographs.csv'
-artists_path = './dtat/artists.csv'
+artists_path = './data/artists.csv'
 
 locations = {
-    photographs: @photographs_path,
-    artists: @artists_path,
+    photographs: photographs_path,
+    artists: artists_path,
     }
 
 files = Files.from_csv(locations)

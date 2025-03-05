@@ -24,5 +24,6 @@ RSpec.describe Photograph do
             expect(@photograph.year).to eq("1954")
         end
     end
+    
 end
    

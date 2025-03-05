@@ -8,11 +8,12 @@ class Files
         @photograph = photograph
         @artists = artists
     end
-end
 
-def self.from_csv(locations)
-    photograph = CSV.read(locations[:photographs], headers: true, header_converters: :symbol)
-    artists = CSV.read(locations[:artists], headers: true, header_converters: :symbol)
 
-    self.new(photograph,artists)
+    def self.from_csv(locations)
+        photograph = CSV.read(locations[:photographs], headers: true, header_converters: :symbol)
+        artists = CSV.read(locations[:artists], headers: true, header_converters: :symbol)
+
+        self.new(photograph,artists)
+    end
 end
