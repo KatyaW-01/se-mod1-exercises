@@ -43,4 +43,8 @@ class Curator
         end
         result
     end
+
+    def photographs_by_country(country)
+        #country as the key, photos by artist from that country as values
+    end
 end
