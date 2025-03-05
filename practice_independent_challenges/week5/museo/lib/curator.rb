@@ -24,7 +24,7 @@ class Curator
         @artists.each do |artist|
             result[artist] = []
             @photographs.map do |photograph|
-                if artist.id == photograph.id
+                if artist.id == photograph.artist_id
                     result[artist] << photograph
                 end
             end
@@ -46,5 +46,19 @@ class Curator
 
     def photographs_by_country(country)
         #country as the key, photos by artist from that country as values
+        result = {}
+        result[country] = []
+        artist_list = @artists.find_all do |artist|
+            artist.country == country
+        end
+
+        artist_list.each do |artist|
+            @photographs.map do |photo|
+                if artist.id == photo.artist_id
+                    result[country] << photo
+                end
+            end  
+        end
+        result
     end
 end
